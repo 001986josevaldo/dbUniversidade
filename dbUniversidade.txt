@@ -18,45 +18,50 @@ nomeProfessor
 codAula 
 dataAula
 
-2 FN
+1 FN -- Remover possiveis repetições
 
-tabela Disciplina 
+Tabela Disciplina:
 
 codDisciplina (PK)
 nomeDisciplina
 nrCreditos
 
-tabela turma
+Tabela Turma:
 
 codTurma (PK)
 anoLetivo
 semestre
 
-tabela aluno
+Tabela Aluno:
 
 codAluno (PK)
 nomeAluno
 matricula
 curso
 
-tabela assunto
+Tabela Assunto:
 
 codAssunto (PK)
 assunto
 nrAulasAssunto
 
-tabela professor 
+Tabela Professor:
 
 codProfessor (PK)
 nomeProfessor
 
-tabela aula
+Tabela Aula:
 
 codAula (PK)
 dataAula
+codDisciplina (FK)
+codTurma (FK)
+codProfessor (FK)
+codAssunto (FK)
 
 
-3 FN
+
+2 FN -- Remover possiveis dependências parciais
 
 Disciplina
 
@@ -96,6 +101,8 @@ Aula
 codAula (PK)
 codTurma (FK)
 codAssunto (FK)
+codProfessor(FK)
+codDisciplina(FK)
 dataAula
 
 turmaAluno
@@ -108,3 +115,102 @@ disciplinaProfessor
 codDisciplina (PK) (FK)
 codProfessor (PK) (FK)
 
+3 FN -- Remover possiveis dependências transitivas
+
+Tabela Disciplina
+
+codDisciplina (PK)
+nomeDisciplina
+nrCreditos
+
+Tabela Turma
+
+codTurma (PK)
+anoLetivo
+semestre
+
+Tabela Aluno
+
+codAluno (PK)
+nomeAluno
+matricula
+curso
+
+Tabela Assunto
+
+codAssunto (PK)
+assunto
+nrAulasAssunto
+
+Tabela Professor
+
+codProfessor (PK)
+nomeProfessor
+
+Tabela Aula
+
+codAula (PK)
+dataAula
+codDisciplina (FK)
+codTurma (FK)
+codProfessor (FK)
+codAssunto (FK)
+
+UF
+
+CodUF (PK)
+nomeUF
+siglaUF
+
+Cidade
+
+CodCid (PK)
+nomeCid
+CodUF (FK)
+
+Bairro
+
+CodBairro (PK)
+NomeBairro
+CodCid (FK)
+
+Endereco
+
+CodEnd (PK)
+Logradouro
+numero
+CEP
+CodBairro (FK)
+
+
+-- --------------- Tabelas de Relacionamento
+
+DisciplinaAssunto
+
+codDisciplina (PK) (FK)
+codAssunto (PK) (FK)
+
+TurmaAluno
+
+codTurma (PK) (FK)
+codAluno (PK) (FK)
+
+DisciplinaAluno
+
+codDisciplina (PK) (FK)
+codAluno (PK) (FK)
+
+DisciplinaProfessor
+
+codDisciplina (PK) (FK)
+codProfessor (PK) (FK)
+
+TurmaProfessor
+
+codTurma (PK) (FK)
+codProfessor (PK) (FK)
+
+DisciplinaTurma
+
+codDisciplina (PK) (FK)
+codTurma (PK) (FK)

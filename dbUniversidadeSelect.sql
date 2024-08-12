@@ -74,3 +74,86 @@ FROM disciplinaAssunto
 JOIN Disciplina ON disciplinaAssunto.codDisciplina = Disciplina.codDisciplina
 JOIN Assunto ON disciplinaAssunto.codAssunto = Assunto.codAssunto;
 
+SELECT codAluno, nomeAluno
+FROM Aluno 
+WHERE codAluno = 1;
+
+-- update para atualizar o nome do aluno joao silva para joao silva souza
+UPDATE Aluno
+SET nomeAluno = 'João Silva Souza'
+WHERE codAluno = 1;
+SELECT codAluno, nomeAluno
+FROM Aluno
+WHERE codAluno = 1;
+
+SELECT 
+    a.codAluno,
+    a.nomeAluno,
+    e.Logradouro,
+    e.numero,
+    e.CEP,
+    b.NomeBairro,
+    c.nomeCid,
+    u.nomeUF,
+    u.siglaUF
+FROM 
+    Aluno a
+JOIN 
+    Endereco e ON a.codEnd = e.CodEnd
+JOIN 
+    Bairro b ON e.CodBairro = b.CodBairro
+JOIN 
+    Cidade c ON b.CodCid = c.CodCid
+JOIN 
+    UF u ON c.CodUF = u.CodUF
+WHERE 
+    a.codAluno = 1;
+
+SELECT CodCid, nomeCid
+FROM Cidade;
+INSERT INTO Bairro (NomeBairro, CodCid)
+VALUES ('Jd. Mato Grosso', 1);
+UPDATE Endereco e
+JOIN Aluno a ON a.codEnd = e.CodEnd
+SET 
+    e.Logradouro = 'Rua Barão do Rio Branco',
+    e.numero = 522,
+    e.CEP = '78700814',
+    e.CodBairro = (
+        SELECT CodBairro 
+        FROM Bairro 
+        WHERE NomeBairro = 'Jd. Mato Grosso'
+        LIMIT 1
+    )
+WHERE 
+    a.codAluno = 1;
+
+SELECT 
+    a.codAluno,
+    a.nomeAluno,
+    e.Logradouro,
+    e.numero,
+    e.CEP,
+    b.NomeBairro,
+    c.nomeCid,
+    u.nomeUF,
+    u.siglaUF
+FROM 
+    Aluno a
+JOIN 
+    Endereco e ON a.codEnd = e.CodEnd
+JOIN 
+    Bairro b ON e.CodBairro = b.CodBairro
+JOIN 
+    Cidade c ON b.CodCid = c.CodCid
+JOIN 
+    UF u ON c.CodUF = u.CodUF
+WHERE 
+    a.codAluno = 1;
+
+
+SELECT * FROM Aluno WHERE codAluno = 1;
+
+SELECT * FROM Endereco WHERE CodEnd = (SELECT codEnd FROM Aluno WHERE codAluno = 1);
+
+SELECT CodBairro FROM Bairro WHERE NomeBairro = 'Jd. Mato Grosso';
