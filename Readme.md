@@ -37,6 +37,7 @@ A 2NF foi atingida removendo dependências parciais, garantindo que todos os atr
 A 3NF foi atingida removendo dependências transitivas, garantindo que todos os atributos não-chave dependam apenas da chave primária e não de outros atributos não-chave.
 
 Tabelas Criadas
+
 UF (Unidade Federativa)
 
 CodUF: Código único para o estado (chave primária).
@@ -114,6 +115,7 @@ codProfessor: Código do professor que ministra a aula (chave estrangeira refere
 Esta tabela registra as aulas, associando-as a disciplinas, turmas e professores.
 
 Tabelas de Relacionamento
+
 Estas tabelas estabelecem relacionamentos entre as principais tabelas:
 
 turmaAluno: Relaciona alunos e turmas.
