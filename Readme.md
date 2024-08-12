@@ -1,7 +1,9 @@
 1. Introdução
+
 Este documento descreve o trabalho realizado para inicio da criação e manter o banco de dados dbUniversidade. Inclui o processo de normalização do banco de dados, criação de tabelas, inserção de dados e operações de consulta e atualização.
 
 2. Estrutura do Banco de Dados
+
 2.1. Tabelas Principais
 As seguintes tabelas foram criadas para representar a estrutura da universidade:
 
@@ -24,6 +26,7 @@ disciplinaTurma: Relaciona disciplinas e turmas.
 disciplinaAssunto: Relaciona disciplinas e assuntos.
 
 3. Normalização
+
 3.1. Primeira Forma Normal (1NF)
 A 1NF foi atingida removendo grupos repetitivos e garantindo que cada coluna contenha valores atômicos.
 
