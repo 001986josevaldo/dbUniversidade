@@ -1,0 +1,110 @@
+Atributos para normalização
+
+codDisciplina 
+nomeDisciplina
+nrCreditos
+codTurma 
+anoLetivo
+semestre
+codAluno 
+nomeAluno
+matricula
+curso
+codAssunto 
+assunto
+nrAulasAssunto
+codProfessor
+nomeProfessor
+codAula 
+dataAula
+
+2 FN
+
+tabela Disciplina 
+
+codDisciplina (PK)
+nomeDisciplina
+nrCreditos
+
+tabela turma
+
+codTurma (PK)
+anoLetivo
+semestre
+
+tabela aluno
+
+codAluno (PK)
+nomeAluno
+matricula
+curso
+
+tabela assunto
+
+codAssunto (PK)
+assunto
+nrAulasAssunto
+
+tabela professor 
+
+codProfessor (PK)
+nomeProfessor
+
+tabela aula
+
+codAula (PK)
+dataAula
+
+
+3 FN
+
+Disciplina
+
+codDisciplina (PK)
+nomeDisciplina
+nrCreditos
+
+Turma
+
+codTurma (PK)
+codDisciplina (FK)
+anoLetivo
+semestre
+
+Aluno
+
+
+codAluno (PK)
+nomeAluno
+matricula
+curso
+
+Assunto
+
+codAssunto (PK)
+codDisciplina (FK)
+assunto
+nrAulasAssunto
+
+professor
+
+codProfessor (PK)
+nomeProfessor
+
+Aula
+
+codAula (PK)
+codTurma (FK)
+codAssunto (FK)
+dataAula
+
+turmaAluno
+
+codTurma (PK) (FK)
+codAluno (PK) (FK)
+
+disciplinaProfessor
+
+codDisciplina (PK) (FK)
+codProfessor (PK) (FK)
+
